@@ -10,7 +10,6 @@ if (total < ordered) {
 
 console.log(message);
 
-// Проверь работоспособность кода с разными значениями переменной ordered, например 20, 80 и 130.
 {
   const ordered = 20;
   if (total < ordered) {

@@ -1,38 +1,30 @@
+let input = prompt('Какое количество дроидов желаите преобрести?');
 const credits = 23580;
 let pricePerDroid = 3000;
+const totalPrice = input * pricePerDroid;
 
-do {
-  let input = prompt('Какое количество дроидов желаите преобрести?');
-
-  if (input === null) {
-    console.log(alert('Отменено пользователем!'));
-  }
-
+if (input === null) {
+  console.log(alert('Отменено пользователем!'));
+} else {
   input = Number(input);
   const notNumber = Number.isNaN(input);
   if (notNumber) {
     console.log(alert('Было введено не число, попробуйте еще раз'));
-    continue;
+  } else {
+    prompt('Общая сумма', totalPrice);
   }
-
-  const totalPrice = input * pricePerDroid;
-
-  if (input !== null) {
-    console.log(prompt('Общая сумму:', totalPrice));
-    if (totalPrice > credits) {
-      console.log(alert('Недостаточно средств на счету!'));
-      continue;
-    } else if (totalPrice - credits) {
-      console.log(
-        `Вы купили ${input} дроидов, на счету осталось ${
-          credits - totalPrice
-        } кредитов.`,
-      );
-      alert(
-        `Вы купили ${input} дроидов, на счету осталось ${
-          credits - totalPrice
-        } кредитов.`,
-      );
-    }
+  if (totalPrice > credits) {
+    alert('Недостаточно средств на счету!');
+  } else if (totalPrice - credits) {
+    console.log(
+      `Вы купили ${input} дроидов, на счету осталось ${
+        credits - totalPrice
+      } кредитов.`,
+    );
+    alert(
+      `Вы купили ${input} дроидов, на счету осталось ${
+        credits - totalPrice
+      } кредитов.`,
+    );
   }
-} while (true);
+}
